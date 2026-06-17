@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Artifacts
+models/
+reports/metrics.json
+
+# Keep figures and the bundled dataset tracked
+!reports/figures/
+
+.DS_Store
+Thumbs.db
