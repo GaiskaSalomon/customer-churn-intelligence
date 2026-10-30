@@ -42,7 +42,7 @@ The dataset is bundled in `data/raw/`; to re-fetch it: `python scripts/get_data.
 
 ## Results
 
-Stratified 80/20 split, threshold 0.5. Metrics are written to `reports/metrics.json` and
+Stratified 80/20 split (7,043 customers: ~5,634 train / ~1,409 test), threshold 0.5, single seed. Metrics are written to `reports/metrics.json` and
 figures to `reports/figures/`.
 
 | Model | ROC-AUC | PR-AUC | F1 | Precision | Recall |
@@ -80,6 +80,15 @@ customer-churn-intelligence/
 ## Tech stack
 
 Python · pandas · scikit-learn · XGBoost · SHAP · matplotlib · pytest.
+
+## Limitations
+
+- Single public dataset (IBM Telco) and a single train/test split: no cross-validation or
+  confidence intervals, so small differences between the two models (e.g. ROC-AUC 0.841 vs 0.843)
+  are not statistically meaningful.
+- Threshold fixed at 0.5 and no cost-sensitive tuning; the precision/recall trade-off depends on
+  a business cost model that is not part of this project.
+- Static snapshot: no temporal validation, drift monitoring or deployment.
 
 ## License
 
